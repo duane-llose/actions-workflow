@@ -5,15 +5,15 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-        node-version: [12, 14, 16]
+        node-version: [12.*, 14.*, 16.*]
         operating-system: [ubuntu-latest, windows-latest]
         include: 
-          - node-version: 18
+          - node-version: 18.*
             opearting-system: ubuntu-latest
         exclude:
-          - node-version: 12
+          - node-version: 12.*
             operating-system: windows-latest
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ${{ matrix.operating-system }} 
     steps:
       - name: Get Code
         uses: actions/checkout@v3
